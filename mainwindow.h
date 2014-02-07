@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <presage.h>
+#include<QStringListModel>
 #include "ExampleCallback.h"
 
 
@@ -20,14 +21,20 @@ public:
     ~MainWindow();
 
 private slots:
-    void magicPredict();
     void lPredict();
+    void selectP();
     
 private:
+    //required for presage
     std::string *context;
     ExampleCallback* callback;
     Presage* presage;
 
+    //required for listView
+    QVariant myVar;
+    QStringListModel *lModel;
+
+    //the ui
     Ui::MainWindow *ui;
 
 };
