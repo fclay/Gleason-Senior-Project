@@ -13,25 +13,29 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     //initalize UI
     ui->setupUi(this);
 
+    myModel = new QStandardItemModel(6, 1, this);
+    ui->tableView->setModel (myModel);
+    ui->tableView->update();
+
     //Connect Signals and Slots
-    QObject::connect(ui->textIn, SIGNAL(textChanged(QString)), this, SLOT(lPredict()));
-    QObject::connect(ui->listView, SIGNAL(clicked(QModelIndex)), this, SLOT(selectP()));
+    QObject::connect(ui->textIn, SIGNAL(textChanged(QString)), this, SLOT(tVPredict()));
+    QObject::connect(ui->tableView, SIGNAL(clicked(QModelIndex)), this, SLOT(selectP()));
+    QObject::connect(ui->clearBtn, SIGNAL(clicked()), this, SLOT(clearTxt()));
+
+    //QObject::connect(ui->spinBox, SIGNAL(valueChanged(QString)), this, SLOT(changeSize()));
 
 }
 
-//This function resets the context every time the user changes the text
-//I'm not sure if this is how Presage likes taking input so we will have to test
-//to see if it is behaving properly.
-void MainWindow::lPredict()
+void MainWindow::tVPredict()
 {
+    myModel = new QStandardItemModel(6, ui->spinBox->value(), this);
+    QStandardItem *item;
+
+    QString blah = "";
     //Get the text
     QString inString = ui->textIn->text();
     //Convert to standard string
     std::string theStr = inString.toStdString();
-
-    //make model for listView
-    lModel = new QStringListModel();
-    ui->listView->setModel(lModel);
 
     //reset Presage context
     context->clear();
@@ -40,18 +44,35 @@ void MainWindow::lPredict()
     //Get predictions
     std::vector< std::string > predictions = presage->predict();
 
-    for (int i = 0; i < predictions.size(); i++) {
-        //add row to list
-        ui->listView->model()->insertRow(i);
-        //convert to QVariant
-        myVar = QVariant(predictions[i].c_str());
-        //add to list model
-        ui->listView->model()->setData(ui->listView->model()->index(i,0),myVar);
-    }
 
-    //update list
-    ui->listView->update();
 
+   for (int i = 0; i<predictions.size(); i++)
+   {
+       item = new QStandardItem(QString(predictions[i].c_str()));
+       myModel->setItem(i,0, item);
+   }
+
+   if (inString.at(inString.size () - 1) == ' ')
+   {
+       for (int i = 1; i < ui->spinBox->value(); i++)
+       {
+           theStr.append(myModel->item (0,(i-1))->text ().toStdString ());
+           theStr.append(" ");
+           context->clear();
+           context->append(theStr);
+           predictions = presage->predict();
+           for (int x = 0; x < predictions.size(); x++)
+           {
+               item = new QStandardItem(QString(predictions[x].c_str()));
+               myModel->setItem(x,i, item);
+           }
+        }
+
+   }
+
+
+   ui->tableView->setModel(myModel);
+   ui->tableView->update ();
 }
 
 void MainWindow::selectP()
@@ -69,17 +90,51 @@ void MainWindow::selectP()
         x--;
         }
         //append current selection
-        myStr.append(ui->listView->model()->data(ui->listView->currentIndex()).toString());
+        myStr.append(myModel->itemFromIndex (ui->tableView->currentIndex ())->text ());
+        myStr.append(" ");
     }
+    //this took me forever to figure out
     else
     {
-        //append current selection
-        myStr.append(ui->listView->model()->data(ui->listView->currentIndex()).toString());
+        for (int x = 0; x < ((ui->tableView->currentIndex ().column ())+1); x++ )
+        {
+            if (x != ui->tableView->currentIndex ().column ())
+            {
+                //append first row up to the column you are at
+                myStr.append(myModel->item (0,x)->text ());
+                myStr.append(" ");
+            }
+            else
+            {
+                //append current selection
+                myStr.append(myModel->itemFromIndex (ui->tableView->currentIndex ())->text ());
+                myStr.append(" ");
+            }
+        }
     }
 
     //reset text
     ui->textIn->setText(myStr);
 
+}
+
+void MainWindow::changeColor()
+{
+    //QModelIndex *myIndex = myModel->index (0,0,this);
+    //QBrush *red = new QBrush(Qt::red);
+    //ui->tableView->setData (myIndex, red, Qt::BackgroundColorRole);
+
+}
+
+void MainWindow::clearTxt()
+{
+    ui->textIn->clear ();
+}
+
+void MainWindow::changeSize()
+{
+    myModel = new QStandardItemModel(6, ui->spinBox->value(), this);
+    ui->tableView->update ();
 }
 
 MainWindow::~MainWindow()

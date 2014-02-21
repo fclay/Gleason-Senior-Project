@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <presage.h>
 #include<QStringListModel>
+#include<QStandardItemModel>
 #include "ExampleCallback.h"
 
 
@@ -21,8 +22,11 @@ public:
     ~MainWindow();
 
 private slots:
-    void lPredict();
     void selectP();
+    void tVPredict();
+    void clearTxt();
+    void changeSize();
+    void changeColor();
     
 private:
     //required for presage
@@ -30,9 +34,7 @@ private:
     ExampleCallback* callback;
     Presage* presage;
 
-    //required for listView
-    QVariant myVar;
-    QStringListModel *lModel;
+    QStandardItemModel *myModel;
 
     //the ui
     Ui::MainWindow *ui;
