@@ -3,6 +3,7 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
+
     //initalize presage
     //Do we want to make a new instance of presage every time?
     //or load one from a file that retains information.
@@ -13,16 +14,17 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     //initalize UI
     ui->setupUi(this);
 
+    //make new model for tableview
     myModel = new QStandardItemModel(6, 1, this);
     ui->tableView->setModel (myModel);
     ui->tableView->update();
+
+    connectKeyboard();
 
     //Connect Signals and Slots
     QObject::connect(ui->textIn, SIGNAL(textChanged(QString)), this, SLOT(tVPredict()));
     QObject::connect(ui->tableView, SIGNAL(clicked(QModelIndex)), this, SLOT(selectP()));
     QObject::connect(ui->clearBtn, SIGNAL(clicked()), this, SLOT(clearTxt()));
-
-    //QObject::connect(ui->spinBox, SIGNAL(valueChanged(QString)), this, SLOT(changeSize()));
 
 }
 
@@ -45,34 +47,37 @@ void MainWindow::tVPredict()
     std::vector< std::string > predictions = presage->predict();
 
 
+    //fill out first column
+    for (int i = 0; i<predictions.size(); i++)
+    {
+        item = new QStandardItem(QString(predictions[i].c_str()));
+        myModel->setItem(i,0, item);
+    }
 
-   for (int i = 0; i<predictions.size(); i++)
-   {
-       item = new QStandardItem(QString(predictions[i].c_str()));
-       myModel->setItem(i,0, item);
-   }
-
-   if (inString.at(inString.size () - 1) == ' ')
-   {
-       for (int i = 1; i < ui->spinBox->value(); i++)
-       {
-           theStr.append(myModel->item (0,(i-1))->text ().toStdString ());
-           theStr.append(" ");
-           context->clear();
-           context->append(theStr);
-           predictions = presage->predict();
-           for (int x = 0; x < predictions.size(); x++)
-           {
-               item = new QStandardItem(QString(predictions[x].c_str()));
-               myModel->setItem(x,i, item);
-           }
+    // if a word at the end of inString is complete
+    if (inString.at(inString.size () - 1) == ' ')
+    {
+        //fill out other colums based upon the spinbox value
+        for (int i = 1; i < ui->spinBox->value(); i++)
+        {
+            //same as above, but predictions are based on the first item of the last column
+            theStr.append(myModel->item (0,(i-1))->text ().toStdString ());
+            theStr.append(" ");
+            context->clear();
+            context->append(theStr);
+            predictions = presage->predict();
+            for (int x = 0; x < predictions.size(); x++)
+            {
+                item = new QStandardItem(QString(predictions[x].c_str()));
+                myModel->setItem(x,i, item);
+            }
         }
 
-   }
+    }
 
 
-   ui->tableView->setModel(myModel);
-   ui->tableView->update ();
+    ui->tableView->setModel(myModel);
+    ui->tableView->update ();
 }
 
 void MainWindow::selectP()
@@ -86,8 +91,8 @@ void MainWindow::selectP()
     {
         while(myStr.at(x) != ' ')
         {
-        myStr.chop(1);
-        x--;
+            myStr.chop(1);
+            x--;
         }
         //append current selection
         myStr.append(myModel->itemFromIndex (ui->tableView->currentIndex ())->text ());
@@ -96,6 +101,7 @@ void MainWindow::selectP()
     //this took me forever to figure out
     else
     {
+
         for (int x = 0; x < ((ui->tableView->currentIndex ().column ())+1); x++ )
         {
             if (x != ui->tableView->currentIndex ().column ())

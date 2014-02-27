@@ -11,7 +11,8 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    keyboard.cpp
 
 HEADERS  += mainwindow.h \
          ExampleCallback.h
