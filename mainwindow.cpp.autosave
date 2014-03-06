@@ -3,9 +3,11 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
+
     //initalize presage
     //Do we want to make a new instance of presage every time?
     //or load one from a file that retains information.
+    //on one of my computers it remembers what I have typed, but not on the other computer
     context = new std::string();
     callback = new ExampleCallback(*context);
     presage = new Presage(callback);
@@ -13,16 +15,17 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     //initalize UI
     ui->setupUi(this);
 
+    //make new model for tableview
     myModel = new QStandardItemModel(6, 1, this);
     ui->tableView->setModel (myModel);
     ui->tableView->update();
+
+    connectKeyboard();
 
     //Connect Signals and Slots
     QObject::connect(ui->textIn, SIGNAL(textChanged(QString)), this, SLOT(tVPredict()));
     QObject::connect(ui->tableView, SIGNAL(clicked(QModelIndex)), this, SLOT(selectP()));
     QObject::connect(ui->clearBtn, SIGNAL(clicked()), this, SLOT(clearTxt()));
-
-    //QObject::connect(ui->spinBox, SIGNAL(valueChanged(QString)), this, SLOT(changeSize()));
 
 }
 
