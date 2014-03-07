@@ -1,15 +1,18 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
 
     //initalize presage
     //Do we want to make a new instance of presage every time?
     //or load one from a file that retains information.
-    context = new std::string();
-    callback = new ExampleCallback(*context);
-    presage = new Presage(callback);
+    //on one of my computers it remembers what I have typed, but not on the other computer
+
+
+    myMiddle = new Middleware();
+    myMiddle->initPresage ();
 
     //initalize UI
     ui->setupUi(this);
@@ -40,11 +43,11 @@ void MainWindow::tVPredict()
     std::string theStr = inString.toStdString();
 
     //reset Presage context
-    context->clear();
-    context->append(theStr);
+    myMiddle->context->clear ();
+    myMiddle->context->append(theStr);
 
     //Get predictions
-    std::vector< std::string > predictions = presage->predict();
+    std::vector< std::string > predictions = myMiddle->predictEngine->predict();
 
 
     //fill out first column
@@ -63,9 +66,9 @@ void MainWindow::tVPredict()
             //same as above, but predictions are based on the first item of the last column
             theStr.append(myModel->item (0,(i-1))->text ().toStdString ());
             theStr.append(" ");
-            context->clear();
-            context->append(theStr);
-            predictions = presage->predict();
+            myMiddle->context->clear();
+            myMiddle->context->append(theStr);
+            predictions = myMiddle->predictEngine->predict();
             for (int x = 0; x < predictions.size(); x++)
             {
                 item = new QStandardItem(QString(predictions[x].c_str()));

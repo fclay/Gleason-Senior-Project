@@ -39,6 +39,7 @@ void MainWindow::connectKeyboard(){
 
 }
 
+
 void MainWindow::shift_pressed ()
 {
     if (ui->Shift_Btn->text() == "Shift")

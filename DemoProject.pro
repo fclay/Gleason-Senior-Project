@@ -12,10 +12,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    keyboard.cpp
+    keyboard.cpp \
+    middleware.cpp
 
 HEADERS  += mainwindow.h \
-         ExampleCallback.h
+         ExampleCallback.h \
+    middleware.h
 
 FORMS    += mainwindow.ui
 

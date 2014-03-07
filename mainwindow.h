@@ -6,6 +6,7 @@
 #include<QStringListModel>
 #include<QStandardItemModel>
 #include "ExampleCallback.h"
+#include "middleware.h"
 
 
 namespace Ui {
@@ -31,6 +32,7 @@ private slots:
     void changeColor();
 
     //keyboard code
+
     void aBtn_pressed();
     void bBtn_pressed();
     void cBtn_pressed();
@@ -67,9 +69,7 @@ private slots:
     
 private:
     //required for presage
-    std::string *context;
-    ExampleCallback* callback;
-    Presage* presage;
+    Middleware *myMiddle;
 
     QStandardItemModel *myModel;
 
