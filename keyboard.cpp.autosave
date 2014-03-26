@@ -39,10 +39,6 @@ void MainWindow::connectKeyboard(){
 
 }
 
-void Mainwindow::magicKey()
-{
-
-}
 
 void MainWindow::shift_pressed ()
 {

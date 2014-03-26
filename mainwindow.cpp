@@ -5,11 +5,10 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
 
-    //initalize presage
+    //initalize middleware
     //Do we want to make a new instance of presage every time?
     //or load one from a file that retains information.
     //on one of my computers it remembers what I have typed, but not on the other computer
-
 
     myMiddle = new Middleware();
     myMiddle->initPresage ();
