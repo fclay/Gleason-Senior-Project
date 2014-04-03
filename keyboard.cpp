@@ -92,10 +92,11 @@ void MainWindow::alt1_pressed()
         ui->X_Btn->setText ("X");
         ui->Y_Btn->setText ("Y");
         ui->Z_Btn->setText ("Z");
+        ui->Comma_Btn->setText(",");
 
-        ui->Alt1_Btn->setText("Alt");
+        ui->Alt1_Btn->setText("!@?#");
     }
-    else if (ui->Alt1_Btn->text() == "Alt")
+    else if (ui->Alt1_Btn->text() == "!@?#")
     {
         ui->A_Btn->setText ("!");
         ui->B_Btn->setText ("+");
@@ -123,6 +124,7 @@ void MainWindow::alt1_pressed()
         ui->X_Btn->setText ("}");
         ui->Y_Btn->setText ("6");
         ui->Z_Btn->setText ("{");
+        ui->Comma_Btn->setText("?");
 
         ui->Alt1_Btn->setText("ABC");
     }
@@ -482,7 +484,7 @@ void MainWindow::xBtn_pressed (){
     else if(ui->Alt1_Btn->text() == "ABC"){
         myStr.append("}");}
     else{
-        myStr.append ("X");}
+        myStr.append ("x");}
     ui->textIn->setText (myStr);
 }
 void MainWindow::yBtn_pressed (){
@@ -525,7 +527,10 @@ void MainWindow::period_pressed (){
 }
 void MainWindow::comma_pressed (){
     QString myStr = ui->textIn->text ();
-        myStr.append (",");
+    if(ui->Alt1_Btn->text() == "ABC"){
+        myStr.append("?");}
+    else{
+        myStr.append (",");}
     ui->textIn->setText (myStr);
 }
 

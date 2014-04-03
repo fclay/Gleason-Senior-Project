@@ -6,6 +6,7 @@
 
 QT       += core gui
 QT += widgets
+
 TARGET = DemoProject
 TEMPLATE = app
 
@@ -13,11 +14,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     keyboard.cpp \
-    middleware.cpp
+    middleware.cpp\
+    pButtons.cpp
 
 HEADERS  += mainwindow.h \
-         ExampleCallback.h \
-    middleware.h
+    middleware.h \
+    PredictCallback.h
 
 FORMS    += mainwindow.ui
 

@@ -5,7 +5,7 @@
 #include <presage.h>
 #include<QStringListModel>
 #include<QStandardItemModel>
-#include "ExampleCallback.h"
+#include <QStyle>
 #include "middleware.h"
 
 
@@ -23,13 +23,11 @@ public:
     ~MainWindow();
 
     void connectKeyboard();
+    void connectPButtons();
 
 private slots:
-    void selectP();
     void tVPredict();
     void clearTxt();
-    void changeSize();
-    void changeColor();
 
     //keyboard code
 
@@ -66,12 +64,45 @@ private slots:
     void period_pressed();
     void comma_pressed();
 
+    //Prediction button code
+
+    void p1_pressed();
+    void p2_pressed();
+    void p3_pressed();
+    void p4_pressed();
+    void p5_pressed();
+    void p6_pressed();
+    void p7_pressed();
+    void p8_pressed();
+    void p9_pressed();
+    void p10_pressed();
+    void p11_pressed();
+    void p12_pressed();
+    void p13_pressed();
+    void p14_pressed();
+    void p15_pressed();
+    void p16_pressed();
+    void p17_pressed();
+    void p18_pressed();
+    void p19_pressed();
+    void p20_pressed();
+    void p21_pressed();
+    void p22_pressed();
+    void p23_pressed();
+    void p24_pressed();
+    void p25_pressed();
+    void p26_pressed();
+    void p27_pressed();
+    void p28_pressed();
+    void p29_pressed();
+    void p30_pressed();
+
+
+
     
 private:
     //required for presage
     Middleware *myMiddle;
-
-    QStandardItemModel *myModel;
 
     //the ui
     Ui::MainWindow *ui;
