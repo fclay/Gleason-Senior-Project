@@ -3,11 +3,14 @@
 #include <presage.h>
 #include "PredictCallback.h"
 
+
 class Middleware
 {
 public:
 
     std::vector<std::string> doPrediction();
+    std::string doCompletion(std::string inString);
+    void chNumSugg(std::string num);
     void initPresage();
     ~Middleware();
 

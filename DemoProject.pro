@@ -15,11 +15,13 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     keyboard.cpp \
     middleware.cpp\
-    pButtons.cpp
+    pButtons.cpp \
+    hoverbutton.cpp
 
 HEADERS  += mainwindow.h \
     middleware.h \
-    PredictCallback.h
+    PredictCallback.h \
+    hoverbutton.h
 
 FORMS    += mainwindow.ui
 

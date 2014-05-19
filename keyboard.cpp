@@ -36,6 +36,10 @@ void MainWindow::connectKeyboard(){
     QObject::connect (ui->Space_Btn, SIGNAL(clicked()), this, SLOT(space_pressed()));
     QObject::connect (ui->Period_Btn, SIGNAL(clicked()), this, SLOT(period_pressed()));
     QObject::connect (ui->Comma_Btn, SIGNAL(clicked()), this, SLOT(comma_pressed()));
+    QObject::connect (ui->Enter_Btn, SIGNAL(clicked()), this, SLOT(enter_pressed()));
+
+    QObject::connect(ui->A_Btn, SIGNAL(hovered()), this, SLOT(aBtn_pressed()));
+
 
 }
 
@@ -532,5 +536,12 @@ void MainWindow::comma_pressed (){
     else{
         myStr.append (",");}
     ui->textIn->setText (myStr);
+}
+
+void MainWindow::enter_pressed() {
+    //just a test of the completion function, no need to include in final product
+    std::string myStr = ui->textIn->text().toStdString();
+    QString outStr = myMiddle->doCompletion(myStr).c_str();
+    ui->textIn->setText(outStr);
 }
 

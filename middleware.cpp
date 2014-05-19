@@ -17,3 +17,14 @@ std::vector<std::string> Middleware::doPrediction()
     return Middleware::returnStuff;
 }
 
+std::string Middleware::doCompletion(std::string inString)
+{
+    std::string outString = predictEngine->completion(inString);
+    return outString;
+}
+
+void Middleware::chNumSugg(std::string num)
+{
+    std::string str1 = "Presage.Selector.SUGGESTIONS";
+    predictEngine->config(str1, num);
+}

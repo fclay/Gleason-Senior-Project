@@ -63,6 +63,7 @@ private slots:
     void space_pressed();
     void period_pressed();
     void comma_pressed();
+    void enter_pressed();
 
     //Prediction button code
 
