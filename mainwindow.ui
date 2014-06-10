@@ -6,12 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1026</width>
+    <width>1017</width>
     <height>707</height>
    </rect>
   </property>
+  <property name="focusPolicy">
+   <enum>Qt::NoFocus</enum>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::DefaultContextMenu</enum>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>On Screen Keyboard</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -557,6 +563,9 @@
             <pointsize>16</pointsize>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="text">
            <string>Q</string>
           </property>
@@ -747,11 +756,11 @@
            <enum>Qt::Horizontal</enum>
           </property>
           <property name="sizeType">
-           <enum>QSizePolicy::Preferred</enum>
+           <enum>QSizePolicy::Fixed</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>40</width>
+            <width>20</width>
             <height>20</height>
            </size>
           </property>
@@ -940,6 +949,24 @@
           </property>
          </widget>
         </item>
+        <item>
+         <widget class="QPushButton" name="sendButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>Send</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </item>
       <item>
@@ -1083,6 +1110,9 @@
             <pointsize>16</pointsize>
            </font>
           </property>
+          <property name="mouseTracking">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>M</string>
           </property>
@@ -1163,6 +1193,32 @@
          </widget>
         </item>
         <item>
+         <widget class="QPushButton" name="App_Button">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Open App</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="start_Button">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Start Pupil</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="Space_Btn">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
@@ -1181,7 +1237,20 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="Alt2_Btn">
+         <widget class="QPushButton" name="mouse_button">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>Start Mouse</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="say_btn">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
             <horstretch>0</horstretch>
@@ -1194,7 +1263,7 @@
            </font>
           </property>
           <property name="text">
-           <string>Alt</string>
+           <string>Say</string>
           </property>
          </widget>
         </item>
@@ -1225,10 +1294,23 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1026</width>
-     <height>19</height>
+     <width>1017</width>
+     <height>27</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuOnScreenKeyboard">
+    <property name="title">
+     <string>File</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionOptions"/>
+   </widget>
+   <addaction name="menuOnScreenKeyboard"/>
+   <addaction name="menuEdit"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -1239,6 +1321,11 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionOptions">
+   <property name="text">
+    <string>Options</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

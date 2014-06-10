@@ -1,3 +1,5 @@
+
+#include </usr/include/python2.7/Python.h>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -37,10 +39,11 @@ void MainWindow::connectKeyboard(){
     QObject::connect (ui->Period_Btn, SIGNAL(clicked()), this, SLOT(period_pressed()));
     QObject::connect (ui->Comma_Btn, SIGNAL(clicked()), this, SLOT(comma_pressed()));
     QObject::connect (ui->Enter_Btn, SIGNAL(clicked()), this, SLOT(enter_pressed()));
-
+    QObject::connect(ui->start_Button, SIGNAL(clicked()), this, SLOT(start_Button_Pressed()));
     QObject::connect(ui->A_Btn, SIGNAL(hovered()), this, SLOT(aBtn_pressed()));
-
-
+    QObject::connect(ui->say_btn, SIGNAL(clicked()), this, SLOT(say_pressed()));
+    QObject::connect(ui->mouse_button, SIGNAL(clicked()), this, SLOT(mouse_pressed()));
+    QObject::connect(ui->sendButton, SIGNAL(clicked()), this, SLOT(send_pressed()));
 }
 
 
@@ -512,7 +515,7 @@ void MainWindow::zBtn_pressed (){
         myStr.append ("Z");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
-        myStr.append("X");}
+        myStr.append("Z");}
     else if(ui->Alt1_Btn->text() == "ABC"){
         myStr.append("{");}
     else{
@@ -545,3 +548,45 @@ void MainWindow::enter_pressed() {
     ui->textIn->setText(outStr);
 }
 
+void MainWindow::start_Button_Pressed() {
+    QProcess *myProcess = new QProcess();
+    myProcess->startDetached("/home/forestclay/Documents/pupilRevisions/pupil-0.3.9/run_capture");
+}
+
+
+void MainWindow::say_pressed() {
+    QProcess *myProc = new QProcess();
+    std::string sayStr = "espeak -v us-mbrola-2 -s 110 ";
+    //std::cout << ui->textIn->text().toStdString() << std::endl;
+    sayStr.append("\"");
+    sayStr.append(ui->textIn->text().toStdString());
+    sayStr.append("\"");
+    //std::cout << sayStr << std::endl;
+    myProc->startDetached(sayStr.c_str());
+
+
+}
+
+void MainWindow::mouse_pressed() {
+    //QProcess *myProc = new QProcess(this);
+    MainWindow::showMinimized();
+    //QTest::qSleep(100);
+    std::string outText = ui->textIn->text().toStdString();
+    std::system("xdotool key k");
+    MainWindow::showNormal();
+    //myProc->startDetached("python /home/forestclay/Documents/pupilRevisions/pupil-0.3.9/pupil_src/capture/new_mouse_listener.py");
+
+}
+
+void MainWindow::send_pressed() {
+
+    MainWindow::showMinimized();
+    std::string outText = "xdotool type ";
+    outText.append("\"");
+    outText.append(ui->textIn->text().toStdString());
+    outText.append("\"");
+    std::system(outText.c_str());
+    std::cout << outText << std::endl;
+    MainWindow::showNormal();
+
+}

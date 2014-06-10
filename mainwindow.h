@@ -1,12 +1,16 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QProcess>
 #include <QtWidgets/QMainWindow>
-#include <presage.h>
 #include<QStringListModel>
 #include<QStandardItemModel>
 #include <QStyle>
+#include <presage.h>
+#include <iostream>
+#include <thread>
 #include "middleware.h"
+
 
 
 namespace Ui {
@@ -28,7 +32,6 @@ public:
 private slots:
     void tVPredict();
     void clearTxt();
-
     //keyboard code
 
     void aBtn_pressed();
@@ -64,7 +67,10 @@ private slots:
     void period_pressed();
     void comma_pressed();
     void enter_pressed();
-
+    void start_Button_Pressed();
+    void say_pressed();
+    void mouse_pressed();
+    void send_pressed();
     //Prediction button code
 
     void p1_pressed();

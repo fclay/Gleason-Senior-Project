@@ -10,19 +10,24 @@ QT += widgets
 TARGET = DemoProject
 TEMPLATE = app
 
+CONFIG += c++11
+
 
 SOURCES += main.cpp\
         mainwindow.cpp \
     keyboard.cpp \
     middleware.cpp\
     pButtons.cpp \
-    hoverbutton.cpp
+    hoverbutton.cpp \
+    settings.cpp
 
 HEADERS  += mainwindow.h \
     middleware.h \
     PredictCallback.h \
-    hoverbutton.h
+    hoverbutton.h \
+    settings.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    settings.ui
 
 LIBS += -lpresage

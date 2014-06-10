@@ -1,0 +1,24 @@
+#ifndef SETTINGS_H
+#define SETTINGS_H
+
+#include <QDialog>
+
+namespace Ui {
+class settings;
+}
+
+class settings : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit settings(QWidget *parent = 0);
+
+    ~settings();
+
+private:
+    Ui::settings *ui;
+    void setAlwaysTop();
+};
+
+#endif // SETTINGS_H
