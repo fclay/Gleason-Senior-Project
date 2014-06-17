@@ -44,6 +44,8 @@ void MainWindow::connectKeyboard(){
     QObject::connect(ui->say_btn, SIGNAL(clicked()), this, SLOT(say_pressed()));
     QObject::connect(ui->mouse_button, SIGNAL(clicked()), this, SLOT(mouse_pressed()));
     QObject::connect(ui->sendButton, SIGNAL(clicked()), this, SLOT(send_pressed()));
+    QObject::connect(ui->deleteButton, SIGNAL(clicked()), this, SLOT(delete_pressed()));
+    QObject::connect(ui->deleteWord, SIGNAL(clicked()), this, SLOT(delete_word()));
 }
 
 
@@ -146,13 +148,14 @@ void MainWindow::back_space()
 
 void MainWindow::aBtn_pressed (){
     QString myStr = ui->textIn->text ();
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("A");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
         myStr.append("A");}
     else if(ui->Alt1_Btn->text() == "ABC"){
-        myStr.append("!");}
+        myStr.chop(1);
+        myStr.append("! ");}
     else{
         myStr.append ("a");}
     ui->textIn->setText (myStr);
@@ -160,7 +163,7 @@ void MainWindow::aBtn_pressed (){
 void MainWindow::bBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("B");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -175,7 +178,7 @@ void MainWindow::bBtn_pressed (){
 void MainWindow::cBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("C");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -190,7 +193,7 @@ void MainWindow::cBtn_pressed (){
 void MainWindow::dBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("D");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -205,7 +208,7 @@ void MainWindow::dBtn_pressed (){
 void MainWindow::eBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("E");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -220,7 +223,7 @@ void MainWindow::eBtn_pressed (){
 void MainWindow::fBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("F");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -235,7 +238,7 @@ void MainWindow::fBtn_pressed (){
 void MainWindow::gBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("G");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -250,7 +253,7 @@ void MainWindow::gBtn_pressed (){
 void MainWindow::hBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("H");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -265,7 +268,7 @@ void MainWindow::hBtn_pressed (){
 void MainWindow::iBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("I");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -280,7 +283,7 @@ void MainWindow::iBtn_pressed (){
 void MainWindow::jBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("J");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -295,7 +298,7 @@ void MainWindow::jBtn_pressed (){
 void MainWindow::kBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("K");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -310,7 +313,7 @@ void MainWindow::kBtn_pressed (){
 void MainWindow::lBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("L");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -325,7 +328,7 @@ void MainWindow::lBtn_pressed (){
 void MainWindow::mBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("M");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -340,7 +343,7 @@ void MainWindow::mBtn_pressed (){
 void MainWindow::nBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("N");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -355,7 +358,7 @@ void MainWindow::nBtn_pressed (){
 void MainWindow::oBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("O");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -370,7 +373,7 @@ void MainWindow::oBtn_pressed (){
 void MainWindow::pBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("P");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -385,7 +388,7 @@ void MainWindow::pBtn_pressed (){
 void MainWindow::qBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("Q");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -400,7 +403,7 @@ void MainWindow::qBtn_pressed (){
 void MainWindow::rBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("R");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -415,7 +418,7 @@ void MainWindow::rBtn_pressed (){
 void MainWindow::sBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("S");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -429,7 +432,7 @@ void MainWindow::sBtn_pressed (){
 }
 void MainWindow::tBtn_pressed (){
     QString myStr = ui->textIn->text ();
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("T");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -442,7 +445,7 @@ void MainWindow::tBtn_pressed (){
 }
 void MainWindow::uBtn_pressed (){
     QString myStr = ui->textIn->text ();
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("U");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -455,7 +458,7 @@ void MainWindow::uBtn_pressed (){
 }
 void MainWindow::vBtn_pressed (){
     QString myStr = ui->textIn->text ();
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("V");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -469,7 +472,7 @@ void MainWindow::vBtn_pressed (){
 void MainWindow::wBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("W");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -483,7 +486,8 @@ void MainWindow::wBtn_pressed (){
 }
 void MainWindow::xBtn_pressed (){
     QString myStr = ui->textIn->text ();
-    if (ui->Shift_Btn->text() == "SHIFT"){
+
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("X");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -497,7 +501,7 @@ void MainWindow::xBtn_pressed (){
 void MainWindow::yBtn_pressed (){
     QString myStr = ui->textIn->text ();
 
-    if (ui->Shift_Btn->text() == "SHIFT"){
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("Y");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -511,7 +515,8 @@ void MainWindow::yBtn_pressed (){
 }
 void MainWindow::zBtn_pressed (){
     QString myStr = ui->textIn->text ();
-    if (ui->Shift_Btn->text() == "SHIFT"){
+
+    if (ui->Shift_Btn->text() == "SHIFT" || MainWindow::checkPunctuation() == true){
         myStr.append ("Z");
         ui->Shift_Btn->setText("Shift");}
     else if(ui->Shift_Btn->text() == "CAPS LOCK"){
@@ -524,28 +529,37 @@ void MainWindow::zBtn_pressed (){
 }
 void MainWindow::space_pressed (){
     QString myStr = ui->textIn->text ();
-        myStr.append (" ");
+    myStr.append (" ");
+    if(myStr[myStr.length()-2] == 'i')
+        myStr[myStr.length()-2] = myStr[myStr.length()-2].toUpper();
+
     ui->textIn->setText (myStr);
 }
 void MainWindow::period_pressed (){
     QString myStr = ui->textIn->text ();
-        myStr.append (".");
+    if(myStr[myStr.size()-1] == ' ') {
+        myStr.chop(1);
+    }
+    myStr.append (". ");
     ui->textIn->setText (myStr);
 }
 void MainWindow::comma_pressed (){
     QString myStr = ui->textIn->text ();
+    if(myStr[myStr.size()-1] == ' ') {
+        myStr.chop(1);
+    }
     if(ui->Alt1_Btn->text() == "ABC"){
-        myStr.append("?");}
+        myStr.append("? ");}
     else{
-        myStr.append (",");}
+        myStr.append (", ");}
     ui->textIn->setText (myStr);
 }
 
 void MainWindow::enter_pressed() {
-    //just a test of the completion function, no need to include in final product
-    std::string myStr = ui->textIn->text().toStdString();
-    QString outStr = myMiddle->doCompletion(myStr).c_str();
-    ui->textIn->setText(outStr);
+    MainWindow::send_pressed();
+    MainWindow::showMinimized();
+    system("xdotool key KP_Enter");
+    MainWindow::showNormal();
 }
 
 void MainWindow::start_Button_Pressed() {
@@ -557,23 +571,15 @@ void MainWindow::start_Button_Pressed() {
 void MainWindow::say_pressed() {
     QProcess *myProc = new QProcess();
     std::string sayStr = "espeak -v us-mbrola-2 -s 110 ";
-    //std::cout << ui->textIn->text().toStdString() << std::endl;
     sayStr.append("\"");
     sayStr.append(ui->textIn->text().toStdString());
     sayStr.append("\"");
-    //std::cout << sayStr << std::endl;
     myProc->startDetached(sayStr.c_str());
-
 
 }
 
 void MainWindow::mouse_pressed() {
     //QProcess *myProc = new QProcess(this);
-    MainWindow::showMinimized();
-    //QTest::qSleep(100);
-    std::string outText = ui->textIn->text().toStdString();
-    std::system("xdotool key k");
-    MainWindow::showNormal();
     //myProc->startDetached("python /home/forestclay/Documents/pupilRevisions/pupil-0.3.9/pupil_src/capture/new_mouse_listener.py");
 
 }
@@ -589,4 +595,32 @@ void MainWindow::send_pressed() {
     std::cout << outText << std::endl;
     MainWindow::showNormal();
 
+}
+
+void MainWindow::delete_pressed() {
+    MainWindow::showMinimized();
+    system("xdotool key BackSpace");
+    MainWindow::showNormal();
+}
+
+bool MainWindow::checkPunctuation() {
+    QString myStr = ui->textIn->text();
+    if(myStr.isEmpty() || myStr.isNull()) //first letter
+        return true;
+    else if(myStr.size() == 1) //make sure str is long enough
+        return false;
+    if(myStr[myStr.size()-2] == '.' || myStr[myStr.size()-2] == '!' || myStr[myStr.size()-2] == '?') //new sentence
+        return true;
+    else
+        return false;
+}
+
+void MainWindow::delete_word() {
+    QString myStr = ui->textIn->text();
+    int x = ui->textIn->text().length();
+    do {
+        myStr.chop(1);
+        x--;
+    } while(myStr[x-1] != ' ' && x > 0);
+    ui->textIn->setText(myStr);
 }

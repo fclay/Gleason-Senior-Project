@@ -39,350 +39,609 @@ void MainWindow::connectPButtons()
 
 void MainWindow::p1_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict1->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict1->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict1->text()[0].toUpper();
+
+    newText.append(output);
     ui->textIn->setText(newText);
 }
 
 void MainWindow::p2_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict2->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict2->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict2->text()[0].toUpper();
+
+    newText.append(output);
     ui->textIn->setText(newText);
 }
 
 void MainWindow::p3_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict3->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict3->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict3->text()[0].toUpper();
+
+    newText.append(output);
     ui->textIn->setText(newText);
 }
 
 void MainWindow::p4_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict4->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict4->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict4->text()[0].toUpper();
+
+    newText.append(output);
     ui->textIn->setText(newText);
 }
 
 void MainWindow::p5_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict5->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict5->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict5->text()[0].toUpper();
+
+    newText.append(output);
     ui->textIn->setText(newText);
 
 }
 
 void MainWindow::p6_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict6->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict6->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict6->text()[0].toUpper();
+
+    newText.append(output);
     ui->textIn->setText(newText);
 }
 
 void MainWindow::p7_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict1->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict1->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict1->text()[0].toUpper();
+
+    newText.append(output);
     newText.append(ui->predict7->text());
-    //newText.append(" ");
     ui->textIn->setText(newText);
 
 }
 
 void MainWindow::p8_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict2->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict2->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict2->text()[0].toUpper();
+
+    newText.append(output);
     newText.append(ui->predict8->text());
-    //newText.append(" ");
     ui->textIn->setText(newText);
 }
 
 void MainWindow::p9_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict3->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict3->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict3->text()[0].toUpper();
+
+    newText.append(output);
     newText.append(ui->predict9->text());
-    //newText.append(" ");
     ui->textIn->setText(newText);
 }
 
 void MainWindow::p10_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict4->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict4->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict4->text()[0].toUpper();
+
+    newText.append(output);
     newText.append(ui->predict10->text());
-    //newText.append(" ");
     ui->textIn->setText(newText);
 }
 
 void MainWindow::p11_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict5->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict5->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict5->text()[0].toUpper();
+
+    newText.append(output);
     newText.append(ui->predict11->text());
-    //newText.append(" ");
     ui->textIn->setText(newText);
 }
 
 void MainWindow::p12_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict6->text());
-   // newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict6->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict6->text()[0].toUpper();
+
+    newText.append(output);
     newText.append(ui->predict12->text());
-    //newText.append(" ");
     ui->textIn->setText(newText);
 }
 
 void MainWindow::p13_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict1->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict1->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict1->text()[0].toUpper();
+
+    newText.append(output);
     newText.append(ui->predict7->text());
-    //newText.append(" ");
     newText.append(ui->predict13->text());
-    //newText.append(" ");
     ui->textIn->setText(newText);
 }
 
 void MainWindow::p14_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict2->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict2->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict2->text()[0].toUpper();
+
+    newText.append(output);
     newText.append(ui->predict8->text());
-    //newText.append(" ");
     newText.append(ui->predict14->text());
-    //newText.append(" ");
     ui->textIn->setText(newText);
 }
 
 void MainWindow::p15_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict3->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict3->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict3->text()[0].toUpper();
+
+    newText.append(output);
     newText.append(ui->predict9->text());
-    //newText.append(" ");
     newText.append(ui->predict15->text());
-    //newText.append(" ");
     ui->textIn->setText(newText);
 }
 
 void MainWindow::p16_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
+    if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict4->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict4->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict4->text()[0].toUpper();
+
+    newText.append(output);
     newText.append(ui->predict10->text());
-    //newText.append(" ");
     newText.append(ui->predict16->text());
-    //newText.append(" ");
     ui->textIn->setText(newText);
 }
 
@@ -398,79 +657,121 @@ void MainWindow::p18_pressed()
 
 void MainWindow::p19_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict1->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict1->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict1->text()[0].toUpper();
+
+    newText.append(output);
     newText.append(ui->predict7->text());
-    //newText.append(" ");
     newText.append(ui->predict13->text());
-    //newText.append(" ");
     newText.append(ui->predict19->text());
-    //newText.append(" ");
     ui->textIn->setText(newText);
 }
 
 void MainWindow::p20_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict2->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict2->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict2->text()[0].toUpper();
+
+    newText.append(output);
     newText.append(ui->predict8->text());
-    //newText.append(" ");
     newText.append(ui->predict14->text());
-    //newText.append(" ");
     newText.append(ui->predict20->text());
-    //newText.append(" ");
     ui->textIn->setText(newText);
 }
 
 void MainWindow::p21_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict3->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict3->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict3->text()[0].toUpper();
+
+    newText.append(output);
     newText.append(ui->predict9->text());
-    //newText.append(" ");
     newText.append(ui->predict15->text());
-    //newText.append(" ");
     newText.append(ui->predict21->text());
-    //newText.append(" ");
     ui->textIn->setText(newText);
 }
 
@@ -491,83 +792,89 @@ void MainWindow::p24_pressed()
 
 void MainWindow::p25_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict1->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict1->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict1->text()[0].toUpper();
+
+    newText.append(output);
     newText.append(ui->predict7->text());
-    //newText.append(" ");
     newText.append(ui->predict13->text());
-    //newText.append(" ");
     newText.append(ui->predict19->text());
-    //newText.append(" ");
     newText.append(ui->predict25->text());
-    //newText.append(" ");
     ui->textIn->setText(newText);
 }
 
 void MainWindow::p26_pressed()
 {
+    bool upper = false;
+    bool shift = false;
+    QString output;
     QString newText = ui->textIn->text();
+    std::cout << newText.toStdString() << std::endl;
+    if(newText[0].isUpper()) {
+        upper = true;
+    }
     int x = (newText.length()-1);
     if ( x>=0 )
     {
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
+        if (newText.at(x) != ' ')
         {
-            newText.chop(1);
-            x--;
+            while((newText.size() > 0) && (newText.at(x) != ' '))
+            {
+                if(newText[x].isUpper() == true) //user caps
+                    shift = true;
+
+                newText.chop(1);
+                x--;
+            }
         }
     }
-    }
-    newText.append(ui->predict2->text());
-    //newText.append(" ");
+    if (newText.size() != 0)
+        upper = false;
+
+    output = ui->predict2->text();
+
+    if(upper == true || shift == true)
+        output[0] = ui->predict2->text()[0].toUpper();
+
+    newText.append(output);
     newText.append(ui->predict8->text());
-    //newText.append(" ");
     newText.append(ui->predict14->text());
-    //newText.append(" ");
     newText.append(ui->predict20->text());
-    //newText.append(" ");
     newText.append(ui->predict26->text());
-    //newText.append(" ");
     ui->textIn->setText(newText);
 }
 
 void MainWindow::p27_pressed()
 {
-    /*QString newText = ui->textIn->text();
-    int x = (newText.length()-1);
-    if (newText.at(x) != ' ')
-    {
-        while((newText.size() > 0) && (newText.at(x) != ' '))
-        {
-            newText.chop(1);
-            x--;
-        }
-    }
-    newText.append(ui->predict3->text());
-    //newText.append(" ");
-    newText.append(ui->predict9->text());
-    //newText.append(" ");
-    newText.append(ui->predict15->text());
-    //newText.append(" ");
-    newText.append(ui->predict21->text());
-    //newText.append(" ");
-    newText.append(ui->predict27->text());
-    //newText.append(" ");
-    ui->textIn->setText(newText);*/
+
 }
 
 void MainWindow::p28_pressed()

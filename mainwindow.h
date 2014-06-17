@@ -71,6 +71,8 @@ private slots:
     void say_pressed();
     void mouse_pressed();
     void send_pressed();
+    void delete_pressed();
+    void delete_word();
     //Prediction button code
 
     void p1_pressed();
@@ -104,7 +106,8 @@ private slots:
     void p29_pressed();
     void p30_pressed();
 
-
+    //helper functions
+    bool checkPunctuation();
 
     
 private:
