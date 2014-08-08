@@ -1,0 +1,6 @@
+All Dependencies can be acquired through apt unless otherwise specified.
+libpresage
+us-mbrola-2
+xdotool
+python2.7
+presage(presage.sourceforge.net)
