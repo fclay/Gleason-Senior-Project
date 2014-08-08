@@ -579,8 +579,8 @@ void MainWindow::say_pressed() {
 }
 
 void MainWindow::mouse_pressed() {
-    //QProcess *myProc = new QProcess(this);
-    //myProc->startDetached("python /home/forestclay/Documents/pupilRevisions/pupil-0.3.9/pupil_src/capture/new_mouse_listener.py");
+    QProcess *myProc = new QProcess(this);
+    myProc->startDetached("python /home/forestclay/Documents/pupilRevisions/pupil-0.3.9/pupil_src/capture/new_mouse_listener.py");
 
 }
 
@@ -618,9 +618,16 @@ bool MainWindow::checkPunctuation() {
 void MainWindow::delete_word() {
     QString myStr = ui->textIn->text();
     int x = ui->textIn->text().length();
+    int i = 0;
+    if(myStr.isEmpty())
+        return;
+
     do {
-        myStr.chop(1);
+        i++;
+        //myStr.chop(1);
         x--;
     } while(myStr[x-1] != ' ' && x > 0);
+    std::cout << i << std::endl;
+    myStr.chop(i);
     ui->textIn->setText(myStr);
 }

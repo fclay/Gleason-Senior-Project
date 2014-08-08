@@ -86,6 +86,9 @@
             <pointsize>16</pointsize>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="text">
            <string>W</string>
           </property>
@@ -103,6 +106,9 @@
            <font>
             <pointsize>16</pointsize>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>E</string>
@@ -122,6 +128,9 @@
             <pointsize>16</pointsize>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="text">
            <string>R</string>
           </property>
@@ -139,6 +148,9 @@
            <font>
             <pointsize>16</pointsize>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>T</string>
@@ -158,6 +170,9 @@
             <pointsize>16</pointsize>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="text">
            <string>Y</string>
           </property>
@@ -175,6 +190,9 @@
            <font>
             <pointsize>16</pointsize>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>U</string>
@@ -194,6 +212,9 @@
             <pointsize>16</pointsize>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="text">
            <string>I</string>
           </property>
@@ -211,6 +232,9 @@
            <font>
             <pointsize>16</pointsize>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>O</string>
@@ -230,6 +254,9 @@
             <pointsize>16</pointsize>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="text">
            <string>P</string>
           </property>
@@ -247,6 +274,9 @@
            <font>
             <pointsize>14</pointsize>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
           </property>
           <property name="text">
            <string>Back-
@@ -1345,6 +1375,9 @@ Mouse</string>
           <pointsize>16</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
         <property name="text">
          <string>Delete</string>
         </property>
@@ -1360,7 +1393,7 @@ Mouse</string>
      <x>0</x>
      <y>0</y>
      <width>1043</width>
-     <height>27</height>
+     <height>29</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuOnScreenKeyboard">
